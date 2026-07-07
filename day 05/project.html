@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaipur Heritage Marathon 2026</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --jaipur-pink: #E07A5F;
+            --jaipur-dark: #2F3E46;
+            --jaipur-cream: #F4F1DE;
+            --jaipur-accent: #F2CC8F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--jaipur-dark);
+            background-color: #FAFAFA;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--jaipur-dark) !important;
+            letter-spacing: 1px;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: var(--jaipur-dark) !important;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .nav-link:hover {
+            color: var(--jaipur-pink) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(47, 62, 70, 0.75), rgba(47, 62, 70, 0.85)), 
+                        url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--jaipur-accent);
+            font-style: italic;
+        }
+
+        /* Global Buttons */
+        .btn-jaipur {
+            background-color: var(--jaipur-pink);
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 30px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            border: 2px solid var(--jaipur-pink);
+        }
+        .btn-jaipur:hover {
+            background-color: transparent;
+            color: var(--jaipur-pink);
+        }
+        .btn-outline-light {
+            border-radius: 0;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Countdown Grid */
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            min-width: 90px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        .countdown-num {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            color: var(--jaipur-accent);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 100px 0;
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--jaipur-pink);
+        }
+
+        /* Route Timeline Card Layout */
+        .route-card {
+            background: white;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .route-card:hover {
+            transform: translateY(-5px);
+        }
+        .route-badge {
+            background-color: var(--jaipur-cream);
+            color: var(--jaipur-pink);
+            font-weight: 700;
+            padding: 8px 15px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* Registration Form Style */
+        .form-control, .form-select {
+            border-radius: 0;
+            padding: 12px;
+            border: 1px solid #E5E5E5;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: none;
+            border-color: var(--jaipur-pink);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-person-running me-2 text-danger"></i>JHM 2026</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">The Race</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#route">The Route</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Header Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="badge bg-light text-dark px-3 py-2 uppercase mb-3 tracking-wider font-monospace">JULY 25, 2026</span>
+                    <h1 class="hero-title mb-3">Run Through <br><span style="color: var(--jaipur-pink)">Living History</span></h1>
+                    <p class="hero-tagline mb-4">From the grand arches of Albert Hall Museum to the timeless window-facades of Hawa Mahal.</p>
+                    <div class="d-flex gap-3 mb-5">
+                        <a href="#register" class="btn btn-jaipur btn-lg">Secure a Slot</a>
+                        <a href="#route" class="btn btn-outline-light btn-lg">Explore Route</a>
+                    </div>
+                </div>
+                
+                <!-- Dynamic Countdown Widget Component -->
+                <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="p-4 p-md-5 bg-dark bg-opacity-50 border border-secondary rounded-0 text-center text-white backdrop-blur">
+                        <h3 class="mb-4">Race Day Countdown</h3>
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <div class="countdown-box">
+                                <span class="countdown-num" id="days">00</span>
+                                <small class="text-uppercase text-muted style-sm">Days</small>
+                            </div>
+                            <div class="countdown-box">
+                                <span class="countdown-num" id="hours">00</span>
+                                <small class="text-uppercase text-muted style-sm">Hrs</small>
+                            </div>
+                            <div class="countdown-box">
+                                <span class="countdown-num" id="minutes">00</span>
+                                <small class="text-uppercase text-muted style-sm">Min</small>
+                            </div>
+                            <div class="countdown-box">
+                                <span class="countdown-num" id="seconds">00</span>
+                                <small class="text-uppercase text-muted style-sm">Sec</small>
+                            </div>
+                        </div>
+                        <p class="text-muted small mb-0">Flag-off starts sharp at 05:30 AM IST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Race Overview Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&q=80&w=800" alt="Marathon runners fleet" class="img-fluid shadow">
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="section-title text-start">An Aesthetic Journey <br>Across The Pink City</h2>
+                    <p class="lead">The Jaipur Heritage Marathon isn't just an athletic competition; it's a structural timeline run across eras.</p>
+                    <p class="text-muted">On July 25th, runners from across the world will stride down clean, royal boulevards, experiencing architectural wonders at every milestone. Whether you choose the full competitive run or the heritage stride, you will trace history step by step.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-map-location-dot fa-2x text-danger me-3"></i>
+                                <div>
+                                    <h5 class="mb-0 fw-bold">21.1 KM</h5>
+                                    <small class="text-muted">Certified Route</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-award fa-2x text-danger me-3"></i>
+                                <div>
+                                    <h5 class="mb-0 fw-bold">₹5,00000+</h5>
+                                    <small class="text-muted">Prize Pool</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Route Milestones Section -->
+    <section id="route" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">The Royal Grid Route</h2>
+                <p class="text-muted max-w-md mx-auto mb-5">Chart your journey starting from one masterpiece structure to another.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Start Point -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 route-card p-4">
+                        <div class="route-badge">START LINE</div>
+                        <h4>Albert Hall Museum</h4>
+                        <p class="text-muted small">05:30 AM Flag-off</p>
+                        <p class="mb-0">Begin surrounded by the exquisite Indo-Saracenic columns as the dawn light touches the city walls.</p>
+                    </div>
+                </div>
+
+                <!-- Mid-Point Waypoint -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 route-card p-4">
+                        <div class="route-badge">MID POINT</div>
+                        <h4>The Old Walled Gates</h4>
+                        <p class="text-muted small">Water & Aid Station</p>
+                        <p class="mb-0">Race past the iconic pink sandstone entry arches while traversing through perfectly planned ancient structural grids.</p>
+                    </div>
+                </div>
+
+                <!-- End Point -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 route-card p-4">
+                        <div class="route-badge">FINISH LINE</div>
+                        <h4>The Hawa Mahal</h4>
+                        <p class="text-muted small">Medal Ceremony Area</p>
+                        <p class="mb-0">Conclude your journey directly in front of the legendary Palace of Winds, collecting your celebratory heritage medal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Registration Form -->
+    <section id="register" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7" data-aos="fade-up">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Claim Your Bib Number</h2>
+                        <p class="text-muted">Limited slots available due to historic area pathway restrictions.</p>
+                    </div>
+                    
+                    <form class="bg-white p-4 p-md-5 shadow-sm border" id="registrationForm" onsubmit="handleRegistration(event)">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">First Name</label>
+                                <input type="text" class="form-control" required placeholder="e.g., Kabir">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Last Name</label>
+                                <input type="text" class="form-control" required placeholder="e.g., Singh">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control" required placeholder="kabir@example.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Race Category</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Choose Race Distance</option>
+                                    <option value="half">Half Marathon (21.1 KM)</option>
+                                    <option value="heritage">Heritage Run (10 KM)</option>
+                                    <option value="dream">Dream Run (5 KM)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">T-Shirt Size</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Select Size</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-jaipur w-100 py-3">Submit Registration</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimalist Footer -->
+    <footer class="bg-dark text-white py-4 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-1 small">&copy; 2026 Jaipur Heritage Marathon Association. All historic architecture visuals property of respective councils.</p>
+            <p class="text-muted small mb-0">Designed elegantly for standard modern browsers using Bootstrap 5.</p>
+        </div>
+    </footer>
+
+    <!-- JS Scripts Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize Scroll Animations
+        AOS.init({
+            once: true,
+            duration: 800
+        });
+
+        // Set Target Count Down Date (July 25, 2026)
+        const countToDate = new Date("July 25, 2026 05:30:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeDifference = countToDate - now;
+
+            if (timeDifference <= 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Sample Interactive Form Notification
+        function handleRegistration(event) {
+            event.preventDefault();
+            alert("Success! Your registration application has been submitted safely. Look out for your Confirmation Bib Email details soon!");
+            document.getElementById("registrationForm").reset();
+        }
+    </script>
+</body>
+</html>

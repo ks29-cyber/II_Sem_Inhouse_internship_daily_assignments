@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+            transition: background 0.4s ease;
+        }
+
+        body.dark {
+            background: #121212;
+        }
+
+        .toggle {
+            width: 80px;
+            height: 40px;
+            background: #dcdcdc;
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        body.dark .toggle {
+            background: #333;
+        }
+
+        .circle {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            transition: 0.4s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        body.dark .circle {
+            transform: translateX(40px);
+            background: #222;
+            color: #ffd43b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle" id="toggle">
+        <div class="circle" id="circle">☀️</div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById("toggle");
+        const circle = document.getElementById("circle");
+
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+                circle.textContent = "🌙";
+            } else {
+                circle.textContent = "☀️";
+            }
+        });
+    </script>
+
+</body>
+</html>
