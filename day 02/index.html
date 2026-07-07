@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Regestration Form</h1>
+    <div>
+        <form action="post">
+    <label for="name">Enter Name</label>
+    <br>
+    <input type="text" id="name" name="name" placeholder="enter your name" required>
+    </div>
+    <div>
+    <label for="">Email</label>
+    <br>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    </div>
+    <div>
+    <label for="number">Mobile</label>
+    <br>
+    <input type="number" name="number" id="number" placeholder="enter your mobile no" required>
+    </div>
+    <div>
+        <label for="gender">Select your gender</label>
+        <br>
+    <label for="male">Male</label>
+    <input type="radio" value="male" name="gender" id="male" required>
+    <label for="">Female</label>
+    <input type="radio" name="gender" id="female" value="female" required>
+    </div>
+    <label for="date">DATE</label>
+    <br>
+    <input type="date" name="date" id="date" required>
+    <div> 
+    <label for="department">Department</label>
+    <br>
+    <select name="department" id="department">
+        <option value="cse">CSE</option>
+        <option value="ds">CSE - DATA SCIENCE</option>
+        <option value="iot">CSE - INTERNET OF THINGS</option>
+        <option value="it">CSE-IT</option>
+        <option value="mech">Mechnical</option>
+        <option value="ELECTRICAL">Electrical</option>
+    </select>
+</div>
+    <div>
+    <label for="password">Enter Your Password</label>
+    <br>
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    </div>
+    <div>
+        <label for="password1">Confirm password</label>
+        <br>
+        <input type="password" name="password1" id="password1" placeholder="Password">
+    </div>
+    <div>
+        <br>
+        <button type="submit">Submit</button>
+
+   </div>
+</form>
+</body>
+</html>

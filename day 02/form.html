@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            border: 2px solid black;
+            border-radius: 24px;
+            background-color: antiquewhite;
+        }
+        form{
+            border: 2px solid black;
+            border-radius: 24px;
+            text-align: center;
+            background-color: rgb(237, 176, 132);
+        }
+         button{
+            color: rgb(96, 22, 255);
+            border-radius: 24px;
+         }
+         button:hover{
+            background-color: brown;
+         }
+         body{
+            background-color: rgb(114, 16, 16);
+         }
+    </style>
+</head>
+<body>
+    <h1>College Admission Form</h1>
+    <form action="post">
+        <div class="I">
+            <label for="name">ENTER YOUR NAME</label>
+            <br>
+            <input type="text" placeholder="NAME" id="name" name="name">
+        </div>
+        <div class="2">
+            <label for="number">Enter Number</label>
+            <br>
+            <input type="number" name="number" id="number" placeholder="number">
+        </div>
+        <div class="gender">
+            <label for="gender">Select Your Gender</label>
+            <br>
+            <label for="male">Male
+                <input type="checkbox" name="gender" id="male" value="male">
+                </label>
+                <label for="female">Female
+                <input type="checkbox" name="gender" id="female" value="female">
+                </label>
+                <label for="pns">Prefer Not To Say
+                <input type="checkbox" name="gender" id="pns" value="pns">
+                </label>
+            
+        </div>
+        <div class="e">
+            <label for="department">Select Branch</label>
+            <br>
+            <select name="department" id="department">
+                <option value="CIVIL">CIVIL</option>
+                <option value="MECHNICAL">MECHNICAL</option>
+                <option value="IT">INFO TECH</option>
+                <option value="CSE">CSE</option>
+            </select>
+        </div>
+        <div class="d">
+            <label for="birt">Birth Day</label>
+            <br>
+            <input type="date" name="birt" id="birt">
+        </div>
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
